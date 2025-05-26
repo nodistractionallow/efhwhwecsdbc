@@ -21,6 +21,6 @@ okay nice now we proceeds to auction.html
   - Team ratings based on stats
 
 Design the game to make it fun, hard to win, and require smart bidding from the user.
-Note :- These lines are taken from my python game which is very different from our game and has very poor auction mechanism but i attached it to learn a bit from it not fully i want 1000 times much better game than that which we completed 30 % already goo job for that ! but now it times for main function of game.
+Note :- These lines are taken from my python game (auction_simulator.py  see i have uploaded that too in repository for reference only) which is very different from our game and has very poor auction mechanism but i attached it to learn a bit from it not fully i want 1000 times much better game than that which we completed 30 % already goo job for that ! but now it times for main function of game.
 
 NOTE :- BEFORE WRITE CODE FOR THE AUCTION.HTML PLEASE ASK ME QUESTIONS WHICH YOU HAAVE ABOUT IT FOR CLARITY AND YOUR HELF THEN AFTER MY ANSWER YOU CAN PROCEEDS !
