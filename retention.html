@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Retention</title>
+    <link rel="stylesheet" href="retention.css">
+</head>
+<body>
+    <div class="container">
+        <div class="team-header">
+            <img id="teamLogo" src="" alt="Team Logo">
+            <h1 id="teamName">Team - Player Retention</h1>
+        </div>
+
+        <div class="budget-info">
+            <p>Remaining Budget: ₹<span id="remainingBudget">80.00</span>Cr</p>
+            <p>Total Retention Cost: ₹<span id="totalCost">0.00</span>Cr</p>
+            <p>Players Retained: <span id="retainedCount">0/6</span></p>
+            <p class="fee-info">Retention Fees: ₹15Cr, ₹10Cr, ₹13Cr, ₹5Cr, ₹4Cr, ₹4Cr (in order of retention)</p>
+        </div>
+
+        <div class="retention-section">
+            <h2>Available Players for Retention</h2>
+            <div id="playerList"></div>
+        </div>
+
+        <div class="selected-section">
+            <h2>Selected Players for Retention</h2>
+            <div id="retainedList"></div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="confirmRetention" onclick="proceedToPreAuction()">Confirm Retention</button>
+            <button id="clearSelection" onclick="clearSelection()">Clear Selection</button>
+        </div>
+    </div>
+    <script src="retention.js"></script>
+</body>
+</html>

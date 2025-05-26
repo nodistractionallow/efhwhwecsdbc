@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Auction - Pre-Auction</title>
+    <link rel="stylesheet" href="preauction.css">
+</head>
+<body>
+    <div class="container">
+        <header class="team-header">
+            <img id="teamLogo" src="" alt="Team Logo" class="team-logo">
+            <h1 id="teamName">Team - Pre-Auction</h1>
+        </header>
+
+        <section class="budget-info">
+            <div class="budget-card">
+                <span class="label">Remaining Budget:</span>
+                <span class="value">₹<span id="remainingBudget">120.00</span>Cr</span>
+            </div>
+            <div class="budget-card">
+                <span class="label">Total Retention Cost:</span>
+                <span class="value">₹<span id="totalCost">0.00</span>Cr</span>
+            </div>
+            <div class="budget-card">
+                <span class="label">Players Retained:</span>
+                <span class="value"><span id="retainedCount">0/6</span></span>
+            </div>
+        </section>
+
+        <section class="retained-section">
+            <h2>Your Retained Players</h2>
+            <div id="retainedList" class="player-grid"></div>
+        </section>
+
+        <section class="auction-pool-section">
+            <h2>Auction Pool</h2>
+            <div id="auctionPool" class="auction-grid"></div>
+        </section>
+
+        <div class="action-buttons">
+            <button class="action-btn" onclick="viewAllTeams()">View All Teams' Retained Players</button>
+            <button class="action-btn" onclick="viewAllBudgets()">View All Teams' Remaining Budgets</button>
+            <button class="action-btn primary" onclick="proceedToAuction()">Proceed to Auction</button>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">×</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+    <script src="preauction.js"></script>
+</body>
+</html>

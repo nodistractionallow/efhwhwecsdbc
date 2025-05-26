@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Auction Simulator - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        .team-container {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .team-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            width: 150px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .team-button img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .team-button span {
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>IPL Auction Simulator</h1>
+    <div class="button-container" id="mainMenu">
+        <button onclick="startNewAuction()">Play Auction</button>
+        <button id="loadButton" onclick="loadAuction()" disabled>Load Auction</button>
+    </div>
+    <div class="team-container" id="teamMenu">
+        <button class="team-button" onclick="selectTeam('CSK')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg" alt="CSK Logo">
+            <span>Chennai Super Kings</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('MI')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg" alt="MI Logo">
+            <span>Mumbai Indians</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('RCB')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Royal_Challengers_Bangalore_Logo.svg" alt="RCB Logo">
+            <span>Royal Challengers Bangalore</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('KKR')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg" alt="KKR Logo">
+            <span>Kolkata Knight Riders</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('DC')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals_Logo.svg" alt="DC Logo">
+            <span>Delhi Capitals</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('SRH')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/81/Sunrisers_Hyderabad.svg" alt="SRH Logo">
+            <span>Sunrisers Hyderabad</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('RR')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Rajasthan_Royals_Logo.svg" alt="RR Logo">
+            <span>Rajasthan Royals</span>
+        </button>
+        <button class="team-button" onclick="selectTeam('PBKS')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/14/Punjab_Kings_Logo.svg" alt="PBKS Logo">
+            <span>Punjab Kings</span>
+        </button>
+    </div>
+
+    <script>
+        // Check if saved game exists on page load
+        window.onload = function() {
+            const savedGame = localStorage.getItem('iplAuctionGameState');
+            if (savedGame) {
+                document.getElementById('loadButton').disabled = false;
+            }
+        };
+
+        // Start a new auction
+        function startNewAuction() {
+            // Clear any existing game state
+            localStorage.removeItem('iplAuctionGameState');
+            // Hide main menu and show team selection
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('teamMenu').style.display = 'flex';
+        }
+
+        // Load saved auction
+        function loadAuction() {
+            const savedGame = localStorage.getItem('iplAuctionGameState');
+            if (savedGame) {
+                // Redirect to auction opening page with saved state
+                window.location.href = 'auction_opening.html';
+            } else {
+                alert('No saved game found!');
+            }
+        }
+
+        // Select team and proceed
+        function selectTeam(team) {
+            // Save selected team in localStorage for auction page
+            const gameState = { selectedTeam: team };
+            localStorage.setItem('iplAuctionGameState', JSON.stringify(gameState));
+            // Redirect to auction opening page
+            window.location.href = 'auction_opening.html';
+        }
+    </script>
+</body>
+</html>
